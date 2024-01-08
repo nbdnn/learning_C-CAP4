@@ -1,16 +1,20 @@
+/* 
+ * Criado por Guilherme Marcos Neves para capacitação
+ */
+
 #pragma once
 #include <string>
 #include "Cpf.hpp"
 
-class Titular
-{
+class Titular {
 public:
-    Cpf cpf;
+    Cpf cpfTitular;
 private:
-    std::string nome;
+    std::string nomeTitular;
 
 public:
-    Titular(Cpf cpf, std::string nome);
+    Titular(Cpf paramCpfTitular, std::string paramNomeTitular);
+    Cpf recuperaCpf() const;
 
 private:
     void verificaTamanhoDoNome();

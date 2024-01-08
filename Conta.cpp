@@ -1,52 +1,54 @@
+/*
+ * Criado por Guilherme Marcos Neves para capacitação
+ */
+
 #include "Conta.hpp"
-#include <iostream>
 
 int Conta::numeroDeContas = 0;
 
-Conta::Conta(std::string numero, Titular titular):
-    numero(numero), 
-    titular(titular),
-    saldo(0)
-{
+Conta::Conta(std::string paramNumeroConta, Titular paramTitularConta):
+    numeroConta(paramNumeroConta),
+    titularConta(paramTitularConta),
+    saldoConta(0) {
+
     numeroDeContas++;
 }
 
-Conta::~Conta()
-{
+Conta::~Conta() {
     numeroDeContas--;
 }
 
-void Conta::sacar(float valorASacar)
-{
+void Conta::sacar(float valorASacar) {
     if (valorASacar < 0) {
         std::cout << "Não pode sacar valor negativo" << std::endl;
         return;
     }
 
-    if (valorASacar > saldo) {
+    if (valorASacar > this->saldoConta) {
         std::cout << "Saldo insuficiente" << std::endl;
         return;
     }
 
-    saldo -= valorASacar;
+    this->saldoConta -= valorASacar;
 }
 
-void Conta::depositar(float valorADepositar)
-{
+void Conta::depositar(float valorADepositar) {
     if (valorADepositar < 0) {
         std::cout << "Não pode sacar valor negativo" << std::endl;
         return;
     }
 
-    saldo += valorADepositar;
+    this->saldoConta += valorADepositar;
 }
 
-float Conta::recuperaSaldo() const
-{
-    return saldo;
+float Conta::recuperaSaldo() const {
+    return this->saldoConta;
 }
 
-int Conta::recuperaNumeroDeContas()
-{
+Titular Conta::recuperaTitular() const {
+  return this->titularConta;
+}
+
+int Conta::recuperaNumeroDeContas() {
     return numeroDeContas;
 }

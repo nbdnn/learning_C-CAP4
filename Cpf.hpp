@@ -1,10 +1,14 @@
+/* 
+ * Criado por Guilherme Marcos Neves para capacitação
+ */
+
 #pragma once
 #include <string>
+#include <iostream>
 
-class Cpf
-{
+class Cpf {
 private:
-    std::string numero;
+    std::string numeroCpf;
 public:
     explicit Cpf(std::string numero);
     Cpf(const Cpf& cpf);
