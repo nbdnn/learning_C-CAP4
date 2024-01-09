@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/nbdnn/code/learning_CAP4",
-      "program": "/home/nbdnn/code/learning_CAP4/build/Debug/outDebug",
+      "cwd": "/home/engenharia/code_criar_css_snow/learning_C-CAP4",
+      "program": "/home/engenharia/code_criar_css_snow/learning_C-CAP4/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

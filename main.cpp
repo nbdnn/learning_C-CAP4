@@ -1,45 +1,70 @@
 /*
- * Criado por Guilherme Marcos Neves para capacitação
- */
+Criado por Guilherme Neves para capacitação
+*/
 
 #include <iostream>
 #include <string>
 #include "Conta.hpp"
 #include "Titular.hpp"
 #include "Cpf.hpp"
+#include "Funcionario.hpp"
+#include "ContaPoupanca.hpp"
+#include "ContaCorrente.hpp"
 
 using namespace std;
 
 void ExibeSaldo(const Conta& conta) {
-    cout << "O saldo de " << conta.recuperaTitular().recuperaCpf().recuperaNumero() << " é: " << conta.recuperaSaldo() << endl;
+    cout << "Saldo de " << conta.recuperaTitular().recuperaCpf().recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
 }
 
-int main() {
-     Titular titular = Titular(
-        Cpf("123.456.789-10"),
-        "Vinicius");
-    
+void RealizaSaque (Conta& conta) {
+    conta.sacar(200);
+}
+
+// void ExibeSaldo(const Conta& conta) {
+//     cout << "Saldo é : " << conta.recuperaSaldo() << endl;
+// }
+
+int main(){
+
     Conta umaConta = Conta(
         "123456",
-        titular);
-    umaConta.depositar(500);
-    umaConta.sacar(200);
+        Titular(
+            string("123.456.789-10"),
+            "Vinicius"));
+    
+    umaConta.depositar(300);
+    umaConta.sacar(50);
+
+    ContaPoupanca umaOutraConta = ContaPoupanca(
+        "654321",
+        Titular(
+            string("019.876.543-21"),
+            "Dias Cardoso"));
+
+    umaOutraConta.depositar(500);
+    RealizaSaque(umaOutraConta);
+
+    Conta maisUmaConta = Conta(
+        "654321",
+        Titular(
+            string("019.876.543-21"),
+            "Gabriel"));
+
+    maisUmaConta.depositar(1000);
+    maisUmaConta.sacar(700);
 
     ExibeSaldo(umaConta);
-
-    // Titular outro = Titular(
-        // Cpf("098.765.432-10"),
-        // "Dias");
-
-    Conta umaOutraConta = Conta(
-        "654321",
-        titular);
-    umaOutraConta.depositar(300);
-    umaOutraConta.sacar(50);
-
     ExibeSaldo(umaOutraConta);
+    ExibeSaldo(maisUmaConta);
 
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
+    Funcionario funcionario(
+        Cpf("123.456.789-10"), "Dias Vinicius", 1000
+    );
+
+    cout << "Nome do funcionário: " << funcionario.recuperaNome() << endl;
+
     return 0;
-}
+} 

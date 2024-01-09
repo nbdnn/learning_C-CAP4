@@ -1,15 +1,18 @@
 /*
- * Criado por Guilherme Marcos Neves para capacitação
- */
+Criado por Guilherme Neves para capacitação
+*/
 
 #include "Conta.hpp"
 
 int Conta::numeroDeContas = 0;
 
-Conta::Conta(std::string paramNumeroConta, Titular paramTitularConta):
+Conta::Conta(
+    std::string paramNumeroConta,
+    Titular paramTitularConta):
+
     numeroConta(paramNumeroConta),
     titularConta(paramTitularConta),
-    saldoConta(0) {
+    saldo(0) {
 
     numeroDeContas++;
 }
@@ -18,37 +21,46 @@ Conta::~Conta() {
     numeroDeContas--;
 }
 
-void Conta::sacar(float valorASacar) {
-    if (valorASacar < 0) {
+int Conta::recuperaNumeroDeContas() {
+    return numeroDeContas;
+}
+
+void Conta::sacar(float valorASacar){
+
+    if(valorASacar < 0){
         std::cout << "Não pode sacar valor negativo" << std::endl;
         return;
     }
 
-    if (valorASacar > this->saldoConta) {
+    float tarifaDeSaque = 0.05f*valorASacar;
+    float valorDoSaque = valorASacar + tarifaDeSaque;
+
+    if(valorDoSaque > this->saldo){
         std::cout << "Saldo insuficiente" << std::endl;
         return;
     }
-
-    this->saldoConta -= valorASacar;
+    
+    this->saldo -= valorDoSaque;
 }
 
-void Conta::depositar(float valorADepositar) {
-    if (valorADepositar < 0) {
-        std::cout << "Não pode sacar valor negativo" << std::endl;
+void Conta::depositar(float valorADepositar){
+
+    if(valorADepositar < 0){
+        std::cout << "Não pode depositar valor negativo" << std::endl;
         return;
     }
+    
+    this->saldo += valorADepositar;
+}
 
-    this->saldoConta += valorADepositar;
+std::string Conta::recuperaNumero() const {
+    return this->numeroConta;
 }
 
 float Conta::recuperaSaldo() const {
-    return this->saldoConta;
+    return this->saldo;
 }
 
 Titular Conta::recuperaTitular() const {
-  return this->titularConta;
-}
-
-int Conta::recuperaNumeroDeContas() {
-    return numeroDeContas;
+    return this->titularConta;
 }

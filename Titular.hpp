@@ -1,22 +1,19 @@
-/* 
- * Criado por Guilherme Marcos Neves para capacitação
- */
+/*
+Criado por Guilherme Neves para capacitação
+*/
 
-#pragma once
+#ifndef TITULAR_HPP
+#define TITULAR_HPP
+
 #include <string>
-#include "Cpf.hpp"
+#include <iostream>
+#include "Pessoa.hpp"
 
-class Titular {
+class Titular : public Pessoa {
 public:
-    Cpf cpfTitular;
-private:
-    std::string nomeTitular;
-
-public:
-    Titular(Cpf paramCpfTitular, std::string paramNomeTitular);
-    Cpf recuperaCpf() const;
-
-private:
-    void verificaTamanhoDoNome();
+    Titular(
+        Cpf paramCpfTitular,
+        std::string paramNomeTitular);
 };
 
+#endif //TITULAR_HPP

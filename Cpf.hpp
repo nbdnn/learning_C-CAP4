@@ -1,17 +1,22 @@
-/* 
- * Criado por Guilherme Marcos Neves para capacitação
- */
+/*
+Criado por Guilherme Neves para capacitação
+*/
 
-#pragma once
+#ifndef CPF_HPP
+#define CPF_HPP
+
 #include <string>
 #include <iostream>
 
 class Cpf {
+
 private:
     std::string numeroCpf;
+    void verificaCpf();
+
 public:
-    explicit Cpf(std::string numero);
-    Cpf(const Cpf& cpf);
-    std::string recuperaNumero() const;
+    Cpf(std::string paramNumeroCpf);
+    std::string recuperaNumero();
 };
 
+#endif //CPF_HPP

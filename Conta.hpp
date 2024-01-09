@@ -1,8 +1,10 @@
 /*
- * Criado por Guilherme Marcos Neves para capacitação
- */
+Criado por Guilherme Neves para capacitação
+*/
 
-#pragma once
+#ifndef CONTA_HPP
+#define CONTA_HPP
+
 #include <string>
 #include <iostream>
 #include "Titular.hpp"
@@ -17,13 +19,22 @@ public:
 private:
     std::string numeroConta;
     Titular titularConta;
-    float saldoConta;
+
+protected:
+    float saldo;
 
 public:
-    Conta(std::string paramNumeroConta, Titular paramTitularConta);
-    ~Conta();
     void sacar(float valorASacar);
     void depositar(float valorADepositar);
-    float recuperaSaldo() const;
+
+    std::string recuperaNumero() const;
     Titular recuperaTitular() const;
+    float recuperaSaldo() const;
+
+    Conta(
+        std::string paramNumeroConta,
+        Titular paramTitularConta);
+    ~Conta();
 };
+
+#endif //CONTA_HPP
