@@ -8,11 +8,10 @@
 #include "Cpf.hpp"
 
 class Pessoa {
+    
 protected:
     Cpf cpfPessoa;
-    std::string nomePessoa;
-protected:
-    
+    std::string nomePessoa;    
 
 private:
     void verificaTamanhoDoNome();
