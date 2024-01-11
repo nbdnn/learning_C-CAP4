@@ -8,12 +8,14 @@ Criado por Guilherme Neves para capacitação
 #include <string>
 #include <iostream>
 #include "Pessoa.hpp"
+#include "Autenticavel.hpp"
 
-class Titular : public Pessoa {
+class Titular final: public Pessoa, public Autenticavel {
 public:
     Titular(
-        Cpf paramCpfTitular,
-        std::string paramNomeTitular);
+        Cpf paramCpf,
+        std::string paramNome,
+        std::string paramSenha);
 };
 
 #endif //TITULAR_HPP

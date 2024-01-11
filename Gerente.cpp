@@ -4,14 +4,15 @@
 
 #include "Gerente.hpp"
 
-Gerente::Gerente(Cpf paramCpfFuncionario,
-        std::string paramNomeFuncionario,
-        float paramSalario) :
+Gerente::Gerente(Cpf paramCpf,
+        std::string paramNome,
+        float paramSalario,
+        std::string paramSenha) :
         Funcionario(
-            paramCpfFuncionario,
-            paramNomeFuncionario,
-            paramSalario
-        ) { }
+            paramCpf,
+            paramNome,
+            paramSalario),
+        Autenticavel(paramSenha) { }
 
 float Gerente::bonificacao() const {
     return 0.5f*this->recuperaSalario();

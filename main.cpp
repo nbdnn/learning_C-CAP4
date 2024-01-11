@@ -12,6 +12,7 @@ Criado por Guilherme Neves para capacitação
 #include "ContaCorrente.hpp"
 #include "Caixa.hpp"
 #include "Gerente.hpp"
+#include "Autenticavel.hpp"
 
 using namespace std;
 
@@ -27,13 +28,22 @@ void RealizaSaque (Conta& conta) {
 //     cout << "Saldo é : " << conta.recuperaSaldo() << endl;
 // } n
 
-int main(){
+void FazLogin(const Autenticavel& alguem, string senha){
+    if(alguem.autentica(senha)){
+        cout << "Login realizado com sucesso" << endl;
+        return;
+    }
+    cout << "Senha inválida" << endl;
+    return;
+}
 
+int main(){
     ContaCorrente umaConta = ContaCorrente(
         "123456",
         Titular(
             string("123.456.789-10"),
-            "Vinicius"));
+            "Vinicius",
+            "umaSenha"));
     
     umaConta.depositar(500);
     umaConta.sacar(200);
@@ -42,7 +52,8 @@ int main(){
         "654321",
         Titular(
             string("019.876.543-21"),
-            "Dias Cardoso"));
+            "Dias Cardoso",
+            "umaSenha"));
 
     umaOutraConta.depositar(500);
 
@@ -50,7 +61,8 @@ int main(){
         "112358",
         Titular(
             string("019.876.543-21"),
-            "Gabriel"));
+            "Gabriel",
+            "umaSenha"));
 
     maisUmaConta.depositar(1000);
     maisUmaConta.sacar(500);
@@ -65,8 +77,16 @@ int main(){
     Caixa funcionarioCaixa = Caixa(
         Cpf("123.456.789-10"), "Dias Vinicius", 1000
     );
+    
+    Gerente gerenteBanco = Gerente(
+        Cpf("123.456.789-10"), "Dias Vinicius", 1000, "senhaForte"
+    );
 
-    cout << "Nome do funcionário: " << funcionarioCaixa.recuperaNome() << endl;
+    cout << "Nome do funcionário do caixa: " << funcionarioCaixa.recuperaNome() << endl;
+    // cout << "Realizando login para gerente...\nInsira a senha: ";
+    // string senhaRecebida;
+    // cin >> senhaRecebida;
+    // FazLogin(gerenteBanco, senhaRecebida);
 
     return 0;
 } 

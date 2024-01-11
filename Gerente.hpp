@@ -3,12 +3,14 @@
 */
 #pragma once
 #include "Funcionario.hpp"
+#include "Autenticavel.hpp"
 
-class Gerente final: public Funcionario {
+class Gerente final: public Funcionario, public Autenticavel {
 public:
     Gerente(
-        Cpf paramCpfFuncionario,
-        std::string paramNomeFuncionario,
-        float paramSalario);
+        Cpf paramCpf,
+        std::string paramNome,
+        float paramSalario,
+        std::string paramSenha);
     float bonificacao() const;
 };
