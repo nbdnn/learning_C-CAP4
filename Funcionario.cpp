@@ -15,3 +15,7 @@ Funcionario::Funcionario(
 std::string Funcionario::recuperaNome() const {
     return this->nomePessoa;
 }
+
+float Funcionario::recuperaSalario() const {
+    return this->salario;
+}

@@ -10,11 +10,13 @@ Criado por Guilherme Neves para capacitação
 #include "Funcionario.hpp"
 #include "ContaPoupanca.hpp"
 #include "ContaCorrente.hpp"
+#include "Caixa.hpp"
+#include "Gerente.hpp"
 
 using namespace std;
 
 void ExibeSaldo(const Conta& conta) {
-    cout << "Saldo de " << conta.recuperaTitular().recuperaCpf().recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
+    cout << "Saldo de " << conta.recuperaNumero() << " é : " << conta.recuperaSaldo() << endl;
 }
 
 void RealizaSaque (Conta& conta) {
@@ -43,16 +45,16 @@ int main(){
             "Dias Cardoso"));
 
     umaOutraConta.depositar(500);
-    RealizaSaque(umaOutraConta);
 
     ContaCorrente maisUmaConta = ContaCorrente(
-        "654321",
+        "112358",
         Titular(
             string("019.876.543-21"),
             "Gabriel"));
 
     maisUmaConta.depositar(1000);
-    maisUmaConta.sacar(700);
+    maisUmaConta.sacar(500);
+    maisUmaConta.transferePara(umaOutraConta, 200);
 
     ExibeSaldo(umaConta);
     ExibeSaldo(umaOutraConta);
@@ -60,11 +62,11 @@ int main(){
 
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
-    Funcionario funcionario(
+    Caixa funcionarioCaixa = Caixa(
         Cpf("123.456.789-10"), "Dias Vinicius", 1000
     );
 
-    cout << "Nome do funcionário: " << funcionario.recuperaNome() << endl;
+    cout << "Nome do funcionário: " << funcionarioCaixa.recuperaNome() << endl;
 
     return 0;
 } 
