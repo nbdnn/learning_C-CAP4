@@ -1,10 +1,10 @@
 /*
  * Criado por Guilherme Marcos Neves para capacitação
 */
-
+#pragma once
 #include "Funcionario.hpp"
 
-class Gerente : public Funcionario {
+class Gerente final: public Funcionario {
 public:
     Gerente(
         Cpf paramCpfFuncionario,

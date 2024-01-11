@@ -2,8 +2,10 @@
 * Criado por Guilherme Marcos Neves para capacitação
 */
 
+#pragma once
 #include "Funcionario.hpp"
-class Caixa : public Funcionario {
+
+class Caixa final: public Funcionario {
 private:
     /* data */
 public:
