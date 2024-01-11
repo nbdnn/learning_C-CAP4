@@ -8,13 +8,12 @@
 #include <iostream>
 #include "Conta.hpp"
 
-class ContaPoupanca : public Conta {
-private:
-    /* data */
+class ContaPoupanca final : public Conta {
+
 public:
-    void sacar(float valorASacar);
+    float taxaDeSaque() const override;
     ContaPoupanca(
         std::string paramNumeroConta,
-        Titular paramTitularConta);
+        Titular paramTitularConta
+    );
 };
-

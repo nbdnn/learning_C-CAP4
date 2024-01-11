@@ -3,3 +3,13 @@
 */
 
 #include "ContaCorrente.hpp"
+
+ContaCorrente::ContaCorrente(
+    std::string paramNumeroConta,
+    Titular paramTitularConta):
+
+    Conta(paramNumeroConta, paramTitularConta) { }
+
+float ContaCorrente::taxaDeSaque() const{
+    return 0.05f;
+}

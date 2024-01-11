@@ -26,6 +26,7 @@ protected:
 public:
     void sacar(float valorASacar);
     void depositar(float valorADepositar);
+    virtual float taxaDeSaque() const = 0;
 
     std::string recuperaNumero() const;
     Titular recuperaTitular() const;
@@ -34,7 +35,7 @@ public:
     Conta(
         std::string paramNumeroConta,
         Titular paramTitularConta);
-    ~Conta();
+    virtual ~Conta();
 };
 
 #endif //CONTA_HPP

@@ -27,14 +27,14 @@ void RealizaSaque (Conta& conta) {
 
 int main(){
 
-    Conta umaConta = Conta(
+    ContaCorrente umaConta = ContaCorrente(
         "123456",
         Titular(
             string("123.456.789-10"),
             "Vinicius"));
     
-    umaConta.depositar(300);
-    umaConta.sacar(50);
+    umaConta.depositar(500);
+    umaConta.sacar(200);
 
     ContaPoupanca umaOutraConta = ContaPoupanca(
         "654321",
@@ -45,7 +45,7 @@ int main(){
     umaOutraConta.depositar(500);
     RealizaSaque(umaOutraConta);
 
-    Conta maisUmaConta = Conta(
+    ContaCorrente maisUmaConta = ContaCorrente(
         "654321",
         Titular(
             string("019.876.543-21"),

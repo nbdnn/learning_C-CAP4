@@ -7,11 +7,11 @@
 #include <iostream>
 #include "Conta.hpp"
 
-class ContaCorrente : public Conta {
-private:
-    /* data */
+class ContaCorrente final : public Conta {
+
 public:
-    ContaCorrente(/* args */);
+    float taxaDeSaque() const override;
+    ContaCorrente(
+        std::string paramNumeroConta,
+        Titular paramTitularConta);
 };
-
-
